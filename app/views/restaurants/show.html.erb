@@ -1,0 +1,20 @@
+<div class="d-flex flex-column my-3">
+  <h1>Welcome to <%= @restaurant.name %></h1>
+  <p class="d-flex justify-content-center"><em><%= @restaurant.category %></em></p>
+  <h6><strong>Adress: </strong><em><%= @restaurant.address %></em></h6>
+
+  <p class="mt-4"><strong>Reviews</strong></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+    <div>
+      <li class="list-group-item mb-1">
+        <div><%= review.content %></div>
+        <div><em><%= review.rating %> stars</em></div>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+
+  <p class="mt-3"><%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "text-decoration-none" %></p>
+  <p class="mb-0"><%= link_to "Back to restaurants", restaurants_path, class: "text-decoration-none" %></p>
+</div>
